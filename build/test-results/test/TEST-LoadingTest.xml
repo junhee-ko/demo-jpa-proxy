@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LoadingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-17T02:55:41" hostname="jko.local" time="1.155">
+  <properties/>
+  <testcase name="test()" classname="LoadingTest" time="1.155"/>
+  <system-out><![CDATA[Hibernate: 
+    
+    drop table if exists Child CASCADE 
+Hibernate: 
+    
+    drop table if exists Member CASCADE 
+Hibernate: 
+    
+    drop table if exists Parent CASCADE 
+Hibernate: 
+    
+    drop table if exists Team CASCADE 
+Hibernate: 
+    
+    create table Child (
+       CHILD_ID bigint not null,
+        PARENT_ID bigint,
+        primary key (CHILD_ID)
+    )
+Hibernate: 
+    
+    create table Member (
+       MEMBER_ID bigint not null,
+        name varchar(255),
+        TEAM_ID bigint,
+        primary key (MEMBER_ID)
+    )
+Hibernate: 
+    
+    create table Parent (
+       PARENT_ID bigint not null,
+        primary key (PARENT_ID)
+    )
+Hibernate: 
+    
+    create table Team (
+       TEAM_ID bigint not null,
+        name varchar(255),
+        primary key (TEAM_ID)
+    )
+Hibernate: 
+    
+    alter table Child 
+       add constraint FKqtrfkxtu92rllepi09f1mwvls 
+       foreign key (PARENT_ID) 
+       references Parent
+Hibernate: 
+    
+    alter table Member 
+       add constraint FKl7wsny760hjy6x19kqnduasbm 
+       foreign key (TEAM_ID) 
+       references Team
+Hibernate: 
+    /* insert jpa.study.loading.Team
+        */ insert 
+        into
+            Team
+            (name, TEAM_ID) 
+        values
+            (?, ?)
+Hibernate: 
+    /* insert jpa.study.loading.Member
+        */ insert 
+        into
+            Member
+            (name, TEAM_ID, MEMBER_ID) 
+        values
+            (?, ?, ?)
+Hibernate: 
+    select
+        member0_.MEMBER_ID as member_i1_1_0_,
+        member0_.name as name2_1_0_,
+        member0_.TEAM_ID as team_id3_1_0_ 
+    from
+        Member member0_ 
+    where
+        member0_.MEMBER_ID=?
+class jpa.study.loading.Team$HibernateProxy$ZTwj9Xxf
+Hibernate: 
+    select
+        team0_.TEAM_ID as team_id1_3_0_,
+        team0_.name as name2_3_0_ 
+    from
+        Team team0_ 
+    where
+        team0_.TEAM_ID=?
+]]></system-out>
+  <system-err><![CDATA[Apr 17, 2021 11:55:42 AM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: tutoring-persistence-unit]
+Apr 17, 2021 11:55:42 AM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.30.Final
+Apr 17, 2021 11:55:42 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+Apr 17, 2021 11:55:42 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Apr 17, 2021 11:55:42 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:~/test]
+Apr 17, 2021 11:55:42 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=sa}
+Apr 17, 2021 11:55:42 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Apr 17, 2021 11:55:42 AM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Apr 17, 2021 11:55:42 AM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Apr 17, 2021 11:55:43 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7cea05fb] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Apr 17, 2021 11:55:43 AM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@69c568ae] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Apr 17, 2021 11:55:43 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+]]></system-err>
+</testsuite>

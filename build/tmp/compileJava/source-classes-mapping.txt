@@ -1,0 +1,8 @@
+jpa/study/cascade/Parent.java
+ jpa.study.cascade.Parent
+jpa/study/loading/Team.java
+ jpa.study.loading.Team
+jpa/study/cascade/Child.java
+ jpa.study.cascade.Child
+jpa/study/loading/Member.java
+ jpa.study.loading.Member
