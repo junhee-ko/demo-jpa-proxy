@@ -4,6 +4,7 @@ Test for JPA
 
 1. loading : eager / lazy
 2. cascade
+3. orphan removal
 
 ## Loading
 
@@ -12,5 +13,8 @@ Test for JPA
 
 ## Cascade
 
-- Parent class is saved with cascade, then child class is also saved.
-- If child class is removed in collection in parent class, then child class is also removed in DB table. 
+- If parent class is saved with cascade, then child class is also saved.
+
+## Orphan removal
+
+- If child class is removed in collection in parent class, then child class is also removed in DB table.
