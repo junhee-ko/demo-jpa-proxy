@@ -4,8 +4,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import jpa.study.cascade.Child;
 import jpa.study.cascade.Parent;
-import jpa.study.loading.Member;
-import jpa.study.loading.Team;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
